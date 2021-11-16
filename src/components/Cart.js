@@ -97,7 +97,7 @@ const Cart = () => {
             <Button
               w="48%"
               rounded="0"
-              bg="brand500"
+              bg="brand900"
               shadow="2"
               hoverShadow="3"
               m={{ t: "1rem" }}
@@ -114,7 +114,7 @@ const Cart = () => {
               <Button
                 w="100%"
                 rounded="0"
-                bg="black900"
+                bg="black600"
                 shadow="2"
                 hoverShadow="3"
                 m={{ t: "1rem" }}
