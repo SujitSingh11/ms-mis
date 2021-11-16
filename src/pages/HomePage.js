@@ -51,7 +51,7 @@ const HomePage = () => {
                   textDecor="none"
                   textColor="gray500"
                 >
-                  ${product.variants[0].price}
+                  ₹{product.variants[0].price}
                 </Text>
               </Div>
             </Link>

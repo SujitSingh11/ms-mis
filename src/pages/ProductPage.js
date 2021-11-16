@@ -47,7 +47,7 @@ const ProductPage = () => {
             {product.title}
           </Text>
           <Text tag="h3" m={{ y: "2rem" }} textWeight="200">
-            ${product.variants[0].price}
+            ₹{product.variants[0].price}
           </Text>
           <Text
             tag="p"
