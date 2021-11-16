@@ -13,7 +13,7 @@ const HomePage = () => {
       // cleanup
     };
   }, [fetchAllProducts]);
-
+  console.log(products);
   if (!products) return <Loading />;
   return (
     <Container>

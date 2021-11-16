@@ -63,7 +63,7 @@ class ShopProvider extends Component {
   };
 
   fetchAllProducts = async () => {
-    const products = await client.product.fetchAll();
+    const products = await client.product.fetchAll(100);
     this.setState({ products: products });
   };
 
