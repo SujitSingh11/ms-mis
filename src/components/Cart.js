@@ -118,6 +118,7 @@ const Cart = () => {
                 shadow="2"
                 hoverShadow="3"
                 m={{ t: "1rem" }}
+                onClick={clearCart}
               >
                 Checkout
               </Button>
