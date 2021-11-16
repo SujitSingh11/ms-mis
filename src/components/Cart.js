@@ -13,7 +13,8 @@ import {
 import { ShopContext } from "../context/shopContext";
 
 const Cart = () => {
-  const { isCartOpen, closeCart, checkout } = useContext(ShopContext);
+  const { isCartOpen, closeCart, checkout, clearCart } =
+    useContext(ShopContext);
   console.log(checkout.lineItems);
   if (checkout.lineItems) {
     return (
@@ -85,9 +86,27 @@ const Cart = () => {
               </>
             )}
           </Row>
-          <Row border={{ t: "1px solid" }} p="0.7rem" borderColor="gray300">
+
+          <Row
+            d="flex"
+            border={{ t: "1px solid" }}
+            p="0.7rem"
+            borderColor="gray300"
+            justify="space-between"
+          >
+            <Button
+              w="48%"
+              rounded="0"
+              bg="brand500"
+              shadow="2"
+              hoverShadow="3"
+              m={{ t: "1rem" }}
+              onClick={clearCart}
+            >
+              Clear Cart
+            </Button>
             <Anchor
-              w="100%"
+              w="48%"
               href={checkout.webUrl}
               target="_blank"
               rel="noopener noreferrer"

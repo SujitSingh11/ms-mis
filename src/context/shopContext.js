@@ -17,33 +17,35 @@ class ShopProvider extends Component {
   };
 
   componentDidMount() {
-    // this.createCheckout();
+    // // this.createCheckout();
 
-    //Check if localStorage has a checkout_id saved
-    if (localStorage.checkout) {
-      this.fetchCheckout(localStorage.checkout);
-    } else {
-      this.createCheckout();
-    }
+    // //Check if localStorage has a checkout_id saved
+    // if (localStorage.checkout) {
+    //   this.fetchCheckout(localStorage.checkout);
+    // } else {
+    //    this.createCheckout();
+    // }
     //if there is no checkout_id in localStorage then we will create a new checkout
 
     //else fetch the checkout from shopify
+
+    this.createCheckout();
   }
 
   createCheckout = async () => {
     const checkout = await client.checkout.create();
-    localStorage.setItem("checkout", checkout.id);
+    // localStorage.setItem("checkout", checkout.id);
     await this.setState({ checkout: checkout });
   };
 
-  fetchCheckout = async (checkoutId) => {
-    client.checkout
-      .fetch(checkoutId)
-      .then((checkout) => {
-        this.setState({ checkout: checkout });
-      })
-      .catch((err) => console.log(err));
-  };
+  // fetchCheckout = async (checkoutId) => {
+  //   client.checkout
+  //     .fetch(checkoutId)
+  //     .then((checkout) => {
+  //       this.setState({ checkout: checkout });
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   addItemToCheckout = async (variantId, quantity) => {
     const lineItemsToAdd = [
@@ -57,8 +59,6 @@ class ShopProvider extends Component {
       lineItemsToAdd
     );
     this.setState({ checkout: checkout });
-    console.log(checkout);
-
     this.openCart();
   };
 
@@ -87,6 +87,7 @@ class ShopProvider extends Component {
       <ShopContext.Provider
         value={{
           ...this.state,
+          clearCart: this.createCheckout,
           fetchAllProducts: this.fetchAllProducts,
           fetchProductWithId: this.fetchProductWithId,
           closeCart: this.closeCart,
